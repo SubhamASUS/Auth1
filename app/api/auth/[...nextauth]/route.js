@@ -1,16 +1,17 @@
 import NextAuth from 'next-auth'
 import GithubProvider from "next-auth/providers/github"
-console.log("DEBUG GITHUB_ID:", process.env.GITHUB_ID);
-console.log("DEBUG GITHUB_SECRET:", process.env.GITHUB_SECRET);
-console.log("GITHUB_ID:", process.env.GITHUB_ID ? "Loaded" : "Missing");
-console.log("GITHUB_SECRET:", process.env.GITHUB_SECRET ? "Loaded" : "Missing");
+import GoogleProvider from "next-auth/providers/google"
+console.log("DEBUG GOOGLE_ID:", process.env.GOOGLE_ID);
+console.log("DEBUG GOOGLE_SECRET:", process.env.GOOGLE_SECRET);
+console.log("GOOGLE_ID:", process.env.GOOGLE_ID ? "Loaded" : "Missing");
+console.log("GOOGLE_SECRET:", process.env.GOOGLE_SECRET ? "Loaded" : "Missing");
 
 
 const handler = NextAuth({
   providers: [
-     GithubProvider({
-      clientId: process.env.GITHUB_ID,
-      clientSecret: process.env.GITHUB_SECRET,
+    GoogleProvider({
+      clientId: process.env.GOOGLE_ID,
+      clientSecret: process.env.GOOGLE_SECRET
     }),
   ]
 })
